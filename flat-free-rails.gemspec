@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Gen Tamura"]
   spec.email         = ["gen.tamura84@gmail.com"]
 
-  spec.summary       = %q{Flat UI Free for Rails}
+  spec.summary       = %q{Flat Free Rails}
   spec.description   = %q{Flat UI Free for Rails}
   spec.homepage      = "https://github.com/gentamura/flat-free-rails"
   spec.license       = "MIT"
