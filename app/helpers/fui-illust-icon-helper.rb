@@ -10,7 +10,7 @@ module FuiIllustIconHelper
     def self.define_illust_icon(name)
       method_name = name.gsub(/\-/, '_')
       define_method "fui_#{method_name}_illust_icon" do |options = {}|
-        image_tag "/assets/icons/svg/#{name}.svg", alt: "#{name.titleize}", size: options[:size]
+        image_tag "/assets/icons/svg/#{name}.svg", alt: "#{name.titleize}", size: options[:size], class: options[:class]
       end
     end
 end

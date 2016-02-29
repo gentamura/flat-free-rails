@@ -3,6 +3,7 @@ require_relative '../../../app/helpers/fui-button-helper'
 require_relative '../../../app/helpers/fui-form-helper'
 require_relative '../../../app/helpers/fui-icon-helper'
 require_relative '../../../app/helpers/fui-illust-icon-helper'
+require_relative '../../../app/helpers/fui-tile-helper'
 
 module Flat
   module Free
@@ -17,6 +18,7 @@ module Flat
           FuiIconHelper.setup
           ActionController::Base.send :helper, FuiIllustIconHelper
           FuiIllustIconHelper.setup
+          ActionController::Base.send :helper, FuiTileHelper
         end
       end
     end
