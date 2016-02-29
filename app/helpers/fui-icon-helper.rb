@@ -32,7 +32,7 @@ module FuiIconHelper
     def self.define_icon(name)
       method_name = name.gsub(/\-/, '_')
       define_method "fui_#{method_name}_icon" do
-        content_tag(:span, nil, class: "fui-#{name}")
+        content_tag(:span, '', class: "fui-#{name}")
       end
     end
 end
