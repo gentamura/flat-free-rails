@@ -6,6 +6,32 @@ module FuiFormHelper
     end
   end
 
+  def fui_input(type = :text, options = {})
+    class_value = "form-control"
+    class_value << " flat" if options[:flat]
+    if options[:hg]
+      class_value << " input-hg"
+    elsif options[:lg]
+      class_value << " input-lg"
+    elsif options[:sm]
+      class_value << " input-sm"
+    end
+
+    if options[:icon]
+      content_tag :div, class: "form-group has-feedback" do
+        concat tag :input, type: type, class: class_value
+        concat content_tag :span, '', class: "form-control-feedback fui-check"
+      end
+    else
+      tag :input, type: type, class: class_value
+    end
+  end
+
+  # <div class="form-group has-feedback">
+  #   <input type="text" value="" placeholder="With icon" class="form-control" />
+  #   <span class="form-control-feedback fui-check"></span>
+  # </div>
+
   def fui_checkbox(text, id, options = {})
     content_tag :label, class: "checkbox", for: id do
       concat tag :input, type: "checkbox", id: id, class: "custom-checkbox", data: { toggle: "checkbox" }, checked: options[:checked], disabled: options[:disabled], name: options[:name]
@@ -16,7 +42,7 @@ module FuiFormHelper
 
   # Radio button : collection
   def fui_radio_buttons(name, attrs = {})
-    raise "Empty Error: The second argument hash is empty." if attrs.empty?
+    raise ArgumentError, "the second argument hash is empty" if attrs.empty?
     attrs.each_with_object "" do |(key, value), tags|
       tags << fui_radio(name, key, value)
     end.html_safe
